@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "b3b82ff3-bf6f-4690-a9c6-b4b3db466ad6",
+		"name": "DroneApplication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "droneRegister",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"serialNumber\": \"serial_1\",\r\n    \"droneModel\": \"HEAVY_WEIGHT\",\r\n    \"weight\": 450.32,\r\n    \"batteryCapacity\": 30.010,\r\n    \"droneState\": \"IDLE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/rest/v1/drone",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"rest",
+						"v1",
+						"drone"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "loadDroneWithMedications",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "serialNumber",
+							"value": "serial_1",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "3422b448-2460-4fd2-9183-8000de6f8343",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8082/rest/v1/drone",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"rest",
+						"v1",
+						"drone"
+					],
+					"query": [
+						{
+							"key": "serialNumber",
+							"value": "serial_1",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "3422b448-2460-4fd2-9183-8000de6f8000",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "checkLoadedMedicationForDrone",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/rest/v1/medication?droneSerialNumber=serial_1",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"rest",
+						"v1",
+						"medication"
+					],
+					"query": [
+						{
+							"key": "droneSerialNumber",
+							"value": "serial_1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "checkForAvailableDrones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/rest/v1/drones/available",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"rest",
+						"v1",
+						"drones",
+						"available"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "checkDroneBattery",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/rest/v1/drone/check/battery?serialNumber=serial_1",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"rest",
+						"v1",
+						"drone",
+						"check",
+						"battery"
+					],
+					"query": [
+						{
+							"key": "serialNumber",
+							"value": "serial_1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "medicationRegister",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "medication",
+							"value": "{\n    \"id\": \"3422b448-2460-4fd2-9183-8000de6f8349\",\n    \"name\": \"hydrogen_peroxide\",\n    \"weight\": 100.0,\n    \"code\": \"FRSFT\"\n}",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "hydrogen peroxide.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8082/rest/v1/medication",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"rest",
+						"v1",
+						"medication"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,13 @@
+server:
+  port: 8082
+
+app:
+  datasource:
+    demo-db:
+      jdbcUrl: jdbc:postgresql://localhost:5441/demoDb
+      username: usr
+      password: pwd
+
+logging:
+  level:
+    sql: debug

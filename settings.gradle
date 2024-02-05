@@ -1,0 +1,4 @@
+rootProject.name = 'pavel-korolev1'
+
+include '01-DronesSevice'
+
